@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainMenuController">
+   <children>
+      <TableView fx:id="CustomerTableView" layoutX="45.0" layoutY="389.0" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="CustomerID" prefWidth="40.0" text="ID" />
+          <TableColumn fx:id="CustomerName" prefWidth="110.0" text="Name" />
+            <TableColumn fx:id="CustomerAddress" prefWidth="125.0" text="Address" />
+            <TableColumn fx:id="CustomerPostalCode" text="Postal Code" />
+            <TableColumn fx:id="CustomerPhone" prefWidth="115.0" text="Phone" />
+            <TableColumn fx:id="CustomerNationalDivision" prefWidth="130.0" text="National Division" />
+        </columns>
+      </TableView>
+      <GridPane layoutX="107.0" layoutY="598.0" prefHeight="60.0" prefWidth="475.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="CustomerInfoButton" mnemonicParsing="false" onAction="#ToAllCustomerInfo" text="All Customer Information" GridPane.halignment="CENTER" />
+            <Button fx:id="AddCustomerButton" mnemonicParsing="false" onAction="#ToAddCustomer" prefWidth="150.0" text="Add New Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="UpdateCustomerButton" mnemonicParsing="false" onAction="#ToUpdateCustomer" prefWidth="150.0" text="Update Customer" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button fx:id="RemoveCustomerButton" mnemonicParsing="false" onAction="#RemoveCustomer" prefWidth="150.0" text="Remove Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Label layoutX="45.0" layoutY="350.0" text="Customers">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TableView fx:id="AppointmentTableView" layoutX="45.0" layoutY="76.0" prefHeight="200.0" prefWidth="1000.0">
+        <columns>
+          <TableColumn fx:id="AppointmentID" prefWidth="46.0" text="ID" />
+          <TableColumn fx:id="AppointmentTitle" prefWidth="66.0" text="Title" />
+            <TableColumn fx:id="AppointmentDescription" prefWidth="99.0" text="Description" />
+            <TableColumn fx:id="AppointmentLocation" prefWidth="89.0" text="Location" />
+            <TableColumn fx:id="AppointmentContact" prefWidth="85.0" text="Contact" />
+            <TableColumn fx:id="AppointmentType" prefWidth="136.0" text="Type" />
+            <TableColumn fx:id="AppointmentStart" prefWidth="132.0" text="Start" />
+            <TableColumn fx:id="AppointmentEnd" minWidth="8.0" prefWidth="134.0" text="End" />
+            <TableColumn fx:id="AppointmentCustomerID" minWidth="0.0" prefWidth="82.0" text="Customer ID" />
+            <TableColumn fx:id="AppointmentUserID" minWidth="0.0" prefWidth="51.0" text="User ID" />
+            <TableColumn fx:id="AppointmentContactID" minWidth="0.0" prefWidth="79.0" text="Contact ID" />
+        </columns>
+      </TableView>
+      <Label layoutX="45.0" layoutY="37.0" text="Appointments">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="450.0" layoutY="35.0" prefHeight="30.0" prefWidth="575.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.0" minWidth="10.0" prefWidth="123.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="241.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="229.0" minWidth="10.0" prefWidth="191.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <RadioButton fx:id="AllAppointmentsRB" mnemonicParsing="false" onAction="#AllAppointmentsSelected" prefHeight="17.0" prefWidth="119.0" selected="true" text="All Appointments" GridPane.halignment="CENTER">
+               <toggleGroup>
+                  <ToggleGroup fx:id="AppointmentView" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="Appointments30RB" mnemonicParsing="false" onAction="#Appointments30Selected" text="Appointments in the next 30 days" toggleGroup="$AppointmentView" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <RadioButton fx:id="Appointment7RB" mnemonicParsing="false" onAction="#Appointments7Selected" text="Appointments in the next 7 days" toggleGroup="$AppointmentView" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="425.0" layoutY="275.0" prefHeight="30.0" prefWidth="575.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="AddAppointmentButton" mnemonicParsing="false" onAction="#ToAddAppointment" prefWidth="135.0" text="Add Appointment" GridPane.halignment="CENTER" />
+            <Button fx:id="UpdateAppointmentButton" mnemonicParsing="false" onAction="#ToUpdateAppointment" prefWidth="135.0" text="Update Appointment" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="RemoveAppointmentButton" mnemonicParsing="false" onAction="#RemoveAppointment" prefWidth="135.0" text="Remove Appointment" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <Button fx:id="CloseApplicationButton" layoutX="924.0" layoutY="616.0" mnemonicParsing="false" onAction="#CloseApplication" text="Close Application" />
+      <Button fx:id="LogOutButton" layoutX="845.0" layoutY="616.0" mnemonicParsing="false" onAction="#LogOut" text="Log Out" />
+      <GridPane layoutX="670.0" layoutY="355.0" prefHeight="234.0" prefWidth="400.0" style="-fx-border-color: Black;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="114.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="96.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.0" minWidth="10.0" prefWidth="108.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="93.0" minWidth="10.0" prefWidth="80.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="54.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="93.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Reports" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label text="Appointment Types by Month" wrapText="true" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="7.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="MonthCB" onAction="#MonthChoice" prefWidth="150.0" promptText="Month" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <ComboBox fx:id="TypeCB" maxWidth="136.0" onAction="#TypeChoice" prefWidth="136.0" promptText="Type" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin></ComboBox>
+            <Label fx:id="TypesByMonthLabel" prefHeight="17.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="Appointments per Contact" wrapText="true" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" right="7.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="ContactCB" prefWidth="150.0" promptText="Contact" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin></ComboBox>
+            <Button fx:id="FilterTableButton" mnemonicParsing="false" onAction="#FilterTable" text="Filter Table" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="ClearFilterButton" mnemonicParsing="false" onAction="#ClearFilter" text="Clear Filter" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label text="Appointment Total for Customer" wrapText="true" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" right="7.0" />
+               </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="CustomerCB" onAction="#CustomerChoice" prefHeight="25.0" prefWidth="150.0" promptText="Customer" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <Label fx:id="CustomerAppCountLabel" prefHeight="17.0" prefWidth="25.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

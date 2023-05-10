@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AllCustomerInfoController">
+    <children>
+        <TableView fx:id="CustomerTableView" layoutX="75.0" layoutY="68.0" prefHeight="200.0" prefWidth="850.0">
+            <columns>
+                <TableColumn fx:id="ID" prefWidth="58.0" text="ID" />
+                <TableColumn fx:id="Name" prefWidth="71.0" text="Name" />
+                <TableColumn fx:id="Address" prefWidth="96.0" text="Address" />
+                <TableColumn fx:id="Postal" prefWidth="75.0" text="Postal Code" />
+                <TableColumn fx:id="Phone" prefWidth="75.0" text="Phone" />
+                <TableColumn fx:id="CreatedOn" prefWidth="75.0" text="Created On" />
+                <TableColumn fx:id="CreatedBy" prefWidth="75.0" text="Created By" />
+                <TableColumn fx:id="LastUpdatedOn" prefWidth="109.0" text="Last Updated On" />
+                <TableColumn fx:id="LastUpdatedBy" prefWidth="104.0" text="Last Updated By" />
+                <TableColumn fx:id="NationalDivision" prefWidth="111.0" text="National Division" />
+            </columns>
+        </TableView>
+      <GridPane layoutX="76.0" layoutY="292.0" prefHeight="61.0" prefWidth="850.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="AddCustomerButton" mnemonicParsing="false" onAction="#ToAddCustomer" prefWidth="150.0" text="Add New Customer" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="UpdateCustomerButton" mnemonicParsing="false" onAction="#ToUpdateCustomer" prefWidth="150.0" text="Update Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Button fx:id="RemoveCustomerButton" mnemonicParsing="false" onAction="#RemoveCustomer" prefWidth="150.0" text="Remove Customer" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            <Button fx:id="MainMenuButton" mnemonicParsing="false" onAction="#ToMainMenu" text="Back to Main Menu" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+         </children>
+      </GridPane>
+      <Label layoutX="75.0" layoutY="21.0" text="Customers">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
